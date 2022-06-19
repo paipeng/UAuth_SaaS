@@ -14,30 +14,30 @@ public class ProductService extends BaseService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product query(Long taskId) {
-        return productRepository.findById(taskId).orElse(null);
+    public Product query(Long productId) {
+        return productRepository.findById(productId).orElse(null);
     }
 
     public List<Product> query() {
         return productRepository.findAll();
     }
 
-    public Product save(Product task) {
-        if (task.getCompany() == null) {
+    public Product save(Product product) {
+        if (product.getCompany() == null) {
             User user = getUserFromSecurity();
-            task.setCompany(user.getCompany());
+            product.setCompany(user.getCompany());
         }
-        return productRepository.saveAndFlush(task);
+        return productRepository.saveAndFlush(product);
     }
 
-    public Product update(Long taskId, Product task) {
-        Product foundTask = query(taskId);
+    public Product update(Long productId, Product product) {
+        Product foundTask = query(productId);
         if (foundTask == null) {
             throw new SC_NOT_FOUND();
         }
-        foundTask.setName(task.getName());
-        foundTask.setDescription(task.getDescription());
-        foundTask.setState(task.getState());
+        foundTask.setName(product.getName());
+        foundTask.setDescription(product.getDescription());
+        foundTask.setState(product.getState());
         logger.trace("foundProduct: " + foundTask.getCompany().getName());
         return productRepository.saveAndFlush(foundTask);
     }

@@ -53,9 +53,9 @@ public class RecordController extends BaseController {
     }
 
 
-    @GetMapping(value = "/tasks/{id}", produces = {"application/json;charset=UTF-8"})
-    public List<Record> queryByTaskId(@NotNull @PathVariable("id") Long taskId) throws Exception {
-        logger.trace("queryByTaskId: " + taskId);
-        return recordService.queryByTaskId(taskId);
+    @GetMapping(value = "/products/{productId}", produces = {"application/json;charset=UTF-8"})
+    public List<Record> queryByProductId(@NotNull @PathVariable("productId") Long productId) throws Exception {
+        logger.trace("queryByProductId: " + productId);
+        return recordService.queryByProductId(productId);
     }
 }

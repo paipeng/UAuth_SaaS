@@ -16,10 +16,10 @@ public class CodeService extends BaseService {
     @Autowired
     private CodeRepository codeRepository;
     @Autowired
-    private ProductRepository taskRepository;
+    private ProductRepository productRepository;
 
-    public Code query(Long taskId) {
-        return codeRepository.findById(taskId).orElse(null);
+    public Code query(Long codeId) {
+        return codeRepository.findById(codeId).orElse(null);
     }
 
     public List<Code> query() {
@@ -33,8 +33,8 @@ public class CodeService extends BaseService {
         return codeRepository.saveAndFlush(code);
     }
 
-    public Code update(Long taskId, Code code) {
-        Code foundCode = query(taskId);
+    public Code update(Long productId, Code code) {
+        Code foundCode = query(productId);
         if (foundCode == null) {
             throw new SC_NOT_FOUND();
         }
@@ -61,10 +61,10 @@ public class CodeService extends BaseService {
         return code;
     }
 
-    public List<Code> queryCodesByTaskId(Long taskId) {
-        Product task = taskRepository.findById(taskId).orElse(null);
-        if (task != null) {
-return codeRepository.findAllByTaskId(taskId);
+    public List<Code> queryCodesByProductId(Long productId) {
+        Product product = productRepository.findById(productId).orElse(null);
+        if (product != null) {
+            return codeRepository.findAllByProductId(productId);
         } else {
             throw new SC_NOT_FOUND();
         }

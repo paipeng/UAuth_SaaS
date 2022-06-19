@@ -28,10 +28,10 @@ public class Company extends BaseEntity {
     private List<User> users;
 
 
-    @JsonBackReference("company-tasks")
+    @JsonBackReference("company-products")
     @OneToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY, mappedBy = "company")
     @LazyCollection(value = LazyCollectionOption.EXTRA)
-    private List<Product> tasks;
+    private List<Product> products;
 
 
     @JsonBackReference("company-devices")
@@ -58,12 +58,12 @@ public class Company extends BaseEntity {
         this.users = users;
     }
 
-    public List<Product> getTasks() {
-        return tasks;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setTasks(List<Product> tasks) {
-        this.tasks = tasks;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public List<Device> getDevices() {

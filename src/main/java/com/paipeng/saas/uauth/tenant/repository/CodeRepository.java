@@ -11,6 +11,6 @@ import java.util.List;
 public interface CodeRepository extends JpaRepository<Code, Long> {
     Code findBySerialNumber(String serialNumber);
 
-    List<Code> findAllByTaskId(Long taskId);
+    List<Code> findAllByProductId(Long productId);
 }
 

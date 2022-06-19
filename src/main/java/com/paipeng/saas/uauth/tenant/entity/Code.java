@@ -82,8 +82,8 @@ public class Code extends BaseEntity{
         return product;
     }
 
-    public void setProduct(Product task) {
-        this.product = task;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public BigDecimal getLongitude() {

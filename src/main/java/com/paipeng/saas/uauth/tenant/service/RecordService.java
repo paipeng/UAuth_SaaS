@@ -77,7 +77,7 @@ public class RecordService extends BaseService{
         recordRepository.delete(foundRecord);
     }
 
-    public List<Record> queryByTaskId(Long taskId) {
-        return recordRepository.findAllByTaskId(taskId);
+    public List<Record> queryByProductId(Long productId) {
+        return recordRepository.findAllByProductId(productId);
     }
 }
